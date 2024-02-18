@@ -1,0 +1,40 @@
+{%block start%}
+
+    {% comment %} <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, consequatur consequuntur? Perferendis, rerum non. Accusamus officia tempore, officiis beatae tenetur dolorum saepe, molestiae libero expedita voluptatibus repudiandae ratione. Vero fuga laborum labore.</p> {% endcomment %}
+    <h1>this is django template folder</h1>
+    <h3>this is index page</h3>
+
+    <a href="/contact/">contact</a>
+    <a href="/about/">about</a>
+
+
+    <table >
+        <tr>
+          <th>s.no</th>
+          <th>name</th>
+          <th>age</th>
+          <th>can vote</th>
+
+        </tr>
+{% comment %} django syntax{% %} {% endcomment %}
+ 
+{%for person in people%}
+
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{person.name}}</td>
+          <td>{{person.age}}</td>
+          <td {% if person.age < 18%} style="background:red"{% endif %} >
+        {%if person.age >= 18%}
+        👍
+    {%else%}
+    👎
+    {%endif%}
+    
+</td>
+        </tr>
+        {% endfor %}
+        
+      </table>
+
+      {%endblock%}
