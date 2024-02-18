@@ -1,0 +1,33 @@
+{% extends "base.html"%}
+{%block start%}
+
+<h1> update reciepe </h1>
+<hr>
+<div  class="container mt5 ">
+<form class="card shadow-lg" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class=" form-group">
+      
+      <label for="exampleInputEmail1" class="form-label" >recipe name</label>
+      <input type="text" class="form-control" name="recipe_name" value="{{recipe.recipe_name}}" required>
+      <br>
+
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label">recipe desciption</label>
+      <textarea value=""  name="recipe_description"class="form-control" required>{{recipe.recipe_description}}</textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="exampleInputPassword1" class="form-label">recipe image</label>
+        <input name="recipe_image" type="file" class="form-control" >
+
+      </div>
+
+    <button type="submit" class="btn btn-success">update recipe</button>
+  </form>
+
+</div>
+
+{%endblock%}
